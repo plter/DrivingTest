@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">驾考过</string>
+    <string name="title_home">考试</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="subject1">科目一</string>
+    <string name="subject2">科目二</string>
+    <string name="subject3">科目三</string>
+    <string name="subject4">科目四</string>
+</resources>
