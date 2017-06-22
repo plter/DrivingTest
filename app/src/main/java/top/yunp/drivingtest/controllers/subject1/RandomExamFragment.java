@@ -1,4 +1,4 @@
-package top.yunp.drivingtest.fragments.subject1;
+package top.yunp.drivingtest.controllers.subject1;
 
 
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import top.yunp.drivingtest.R;
 import top.yunp.drivingtest.databinding.FragmentRandomExamBinding;
 
 /**

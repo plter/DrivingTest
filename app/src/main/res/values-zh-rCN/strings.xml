@@ -2,11 +2,13 @@
 <resources>
     <string name="app_name">驾考过</string>
     <string name="title_home">考试</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_settings">设置</string>
     <string name="title_notifications">Notifications</string>
     <string name="subject1">科目一</string>
     <string name="subject2">科目二</string>
     <string name="subject3">科目三</string>
     <string name="subject4">科目四</string>
     <string name="next">下一题</string>
+    <string name="random_exam">随机练题</string>
+    <string name="mock_exam">模拟考试</string>
 </resources>

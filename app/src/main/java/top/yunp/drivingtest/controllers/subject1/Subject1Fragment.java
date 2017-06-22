@@ -1,4 +1,4 @@
-package top.yunp.drivingtest.fragments.subject1;
+package top.yunp.drivingtest.controllers.subject1;
 
 
 import android.os.Bundle;
@@ -7,9 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import top.yunp.drivingtest.R;
 import top.yunp.drivingtest.databinding.FragmentSubject1Binding;
-import top.yunp.drivingtest.fragments.SubjectFragment;
+import top.yunp.drivingtest.controllers.SubjectFragment;
 
 /**
  * A simple {@link Fragment} subclass.

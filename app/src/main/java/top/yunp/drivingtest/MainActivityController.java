@@ -5,8 +5,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 
 import top.yunp.drivingtest.databinding.ActivityMainBinding;
-import top.yunp.drivingtest.fragments.ExamFragment;
-import top.yunp.drivingtest.fragments.SettingsFragment;
+import top.yunp.drivingtest.controllers.ExamFragment;
+import top.yunp.drivingtest.controllers.SettingsFragment;
 
 /**
  * Created by plter on 6/22/17.

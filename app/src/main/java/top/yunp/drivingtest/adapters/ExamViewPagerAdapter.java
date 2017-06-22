@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import top.yunp.drivingtest.R;
-import top.yunp.drivingtest.fragments.subject1.Subject1Fragment;
-import top.yunp.drivingtest.fragments.Subject2Fragment;
-import top.yunp.drivingtest.fragments.Subject3Fragment;
-import top.yunp.drivingtest.fragments.Subject4Fragment;
-import top.yunp.drivingtest.fragments.SubjectFragment;
+import top.yunp.drivingtest.controllers.subject1.Subject1Fragment;
+import top.yunp.drivingtest.controllers.Subject2Fragment;
+import top.yunp.drivingtest.controllers.Subject3Fragment;
+import top.yunp.drivingtest.controllers.Subject4Fragment;
+import top.yunp.drivingtest.controllers.SubjectFragment;
 
 /**
  * Created by plter on 6/22/17.

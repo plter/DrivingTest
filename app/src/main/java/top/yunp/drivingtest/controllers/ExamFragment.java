@@ -1,21 +1,21 @@
-package top.yunp.drivingtest.fragments;
+package top.yunp.drivingtest.controllers;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import top.yunp.drivingtest.R;
+import top.yunp.drivingtest.databinding.FragmentExamBinding;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Subject3Fragment extends SubjectFragment {
+public class ExamFragment extends Fragment {
 
 
-    public Subject3Fragment() {
+    public ExamFragment() {
         // Required empty public constructor
     }
 
@@ -23,8 +23,9 @@ public class Subject3Fragment extends SubjectFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_subject3, container, false);
+        FragmentExamBinding binding = FragmentExamBinding.inflate(inflater);
+        binding.setController(new ExamFragmentController(this, binding));
+        return binding.getRoot();
     }
 
 }

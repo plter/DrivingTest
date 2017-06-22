@@ -1,11 +1,8 @@
-package top.yunp.drivingtest.fragments.subject1;
+package top.yunp.drivingtest.controllers.subject1;
 
 import android.databinding.ObservableField;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import org.xml.sax.SAXException;
@@ -15,6 +12,7 @@ import java.util.List;
 import top.yunp.drivingtest.R;
 import top.yunp.drivingtest.anim.AnimationListenerAdapter;
 import top.yunp.drivingtest.anim.Translate3D;
+import top.yunp.drivingtest.controllers.AnswerFieldController;
 import top.yunp.drivingtest.databinding.FragmentRandomExamBinding;
 import top.yunp.drivingtest.databinding.SingleChoiceLayoutBinding;
 import top.yunp.drivingtest.reader.Question;
@@ -32,6 +30,7 @@ public class RandomExamFragmentController {
     private List<Question> questions;
     private Question currentQuestion;
     private SingleChoiceLayoutBinding currentSingleChoiceLayoutBinding;
+    private AnswerFieldController currentAnswerFieldController = null;
 
     public RandomExamFragmentController(RandomExamFragment fragment, FragmentRandomExamBinding binding) {
         this.binding = binding;
@@ -74,39 +73,17 @@ public class RandomExamFragmentController {
 
         title.set(currentQuestion.getTitle());
 
-        String type = currentQuestion.getType();
-        if (type.equals("single")) {
-            binding.answerContainer.removeAllViews();
-
-            currentSingleChoiceLayoutBinding = SingleChoiceLayoutBinding.inflate(LayoutInflater.from(fragment.getContext()));
-            binding.answerContainer.addView(currentSingleChoiceLayoutBinding.getRoot());
-            currentSingleChoiceLayoutBinding.rbA.setText(currentQuestion.getA());
-            currentSingleChoiceLayoutBinding.rbB.setText(currentQuestion.getB());
-            currentSingleChoiceLayoutBinding.rbC.setText(currentQuestion.getC());
-            currentSingleChoiceLayoutBinding.rbD.setText(currentQuestion.getD());
-        }
+        binding.answerContainer.removeAllViews();
+        currentAnswerFieldController = new AnswerFieldController(fragment.getContext(), currentQuestion);
+        binding.answerContainer.addView(currentAnswerFieldController.getView());
     }
 
     public void btnNextClickedHandler(View v) {
-        if (currentQuestion.getType().equals("single")) {
-
-            RadioGroup rg = currentSingleChoiceLayoutBinding.radioGroup;
-            RadioButton rb = (RadioButton) rg.findViewById(rg.getCheckedRadioButtonId());
-            String answer = "";
-            if (rb == currentSingleChoiceLayoutBinding.rbA) {
-                answer = "a";
-            } else if (rb == currentSingleChoiceLayoutBinding.rbB) {
-                answer = "b";
-            } else if (rb == currentSingleChoiceLayoutBinding.rbC) {
-                answer = "c";
-            } else if (rb == currentSingleChoiceLayoutBinding.rbD) {
-                answer = "d";
-            }
-            if (answer.equals(currentQuestion.getAnswer())) {
-                Toast.makeText(fragment.getContext(), "正确", Toast.LENGTH_SHORT).show();
-            } else {
-                description.set(currentQuestion.getDescription());
-            }
+        if (currentAnswerFieldController.isCorrect()) {
+            showRandomQuestion();
+            description.set("");
+        } else {
+            description.set(currentQuestion.getDescription());
         }
     }
 

@@ -1,4 +1,4 @@
-package top.yunp.drivingtest.fragments;
+package top.yunp.drivingtest.controllers;
 
 
 import android.os.Bundle;
@@ -12,20 +12,18 @@ import top.yunp.drivingtest.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Subject2Fragment extends SubjectFragment {
+public class Subject4Fragment extends SubjectFragment {
 
 
-    public Subject2Fragment() {
+    public Subject4Fragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_subject2, container, false);
+        return inflater.inflate(R.layout.fragment_subject4, container, false);
     }
 
 }

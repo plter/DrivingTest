@@ -1,10 +1,10 @@
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="controller"
-            type="top.yunp.drivingtest.fragments.ExamFragmentController" />
+            type="top.yunp.drivingtest.controllers.ExamFragmentController" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,12 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="top.yunp.drivingtest.fragments.ExamFragment">
+        tools:context="top.yunp.drivingtest.controllers.ExamFragment">
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tab"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextColor="@android:color/white" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/vp"

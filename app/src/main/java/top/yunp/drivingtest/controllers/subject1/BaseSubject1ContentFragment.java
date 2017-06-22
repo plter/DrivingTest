@@ -1,4 +1,4 @@
-package top.yunp.drivingtest.fragments.subject1;
+package top.yunp.drivingtest.controllers.subject1;
 
 import android.support.v4.app.Fragment;
 import android.view.animation.Animation;

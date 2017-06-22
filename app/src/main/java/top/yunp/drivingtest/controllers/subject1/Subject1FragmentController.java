@@ -1,4 +1,4 @@
-package top.yunp.drivingtest.fragments.subject1;
+package top.yunp.drivingtest.controllers.subject1;
 
 import top.yunp.drivingtest.R;
 import top.yunp.drivingtest.databinding.FragmentSubject1Binding;

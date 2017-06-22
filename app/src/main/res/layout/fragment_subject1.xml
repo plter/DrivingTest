@@ -4,7 +4,7 @@
 
         <variable
             name="controller"
-            type="top.yunp.drivingtest.fragments.subject1.Subject1FragmentController" />
+            type="top.yunp.drivingtest.controllers.subject1.Subject1FragmentController" />
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,7 +12,7 @@
         android:id="@+id/examContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="top.yunp.drivingtest.fragments.subject1.Subject1Fragment">
+        tools:context="top.yunp.drivingtest.controllers.subject1.Subject1Fragment">
 
     </FrameLayout>
 </layout>
