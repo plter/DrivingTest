@@ -1,7 +1,6 @@
 package top.yunp.drivingtest.adapters;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import top.yunp.drivingtest.R;
-import top.yunp.drivingtest.fragments.Subject1Fragment;
+import top.yunp.drivingtest.fragments.subject1.Subject1Fragment;
 import top.yunp.drivingtest.fragments.Subject2Fragment;
 import top.yunp.drivingtest.fragments.Subject3Fragment;
 import top.yunp.drivingtest.fragments.Subject4Fragment;

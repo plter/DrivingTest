@@ -1,13 +1,18 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="top.yunp.drivingtest.fragments.Subject1Fragment">
+<layout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <variable
+            name="controller"
+            type="top.yunp.drivingtest.fragments.subject1.Subject1FragmentController" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/examContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="科目一" />
+        tools:context="top.yunp.drivingtest.fragments.subject1.Subject1Fragment">
 
-</FrameLayout>
+    </FrameLayout>
+</layout>

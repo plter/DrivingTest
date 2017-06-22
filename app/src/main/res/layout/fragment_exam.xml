@@ -4,7 +4,7 @@
 
         <variable
             name="controller"
-            type="top.yunp.drivingtest.controllers.ExamFragmentController" />
+            type="top.yunp.drivingtest.fragments.ExamFragmentController" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

@@ -1,11 +1,9 @@
-package top.yunp.drivingtest.controllers;
+package top.yunp.drivingtest;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 
-import top.yunp.drivingtest.MainActivity;
-import top.yunp.drivingtest.R;
 import top.yunp.drivingtest.databinding.ActivityMainBinding;
 import top.yunp.drivingtest.fragments.ExamFragment;
 import top.yunp.drivingtest.fragments.SettingsFragment;

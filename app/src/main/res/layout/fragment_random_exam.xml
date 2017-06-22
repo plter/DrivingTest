@@ -1,0 +1,37 @@
+<layout>
+
+    <data>
+
+        <variable
+            name="controller"
+            type="top.yunp.drivingtest.fragments.subject1.RandomExamFragmentController" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_light"
+        tools:context="top.yunp.drivingtest.fragments.subject1.RandomExamFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="随机练题" />
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:onClick="@{controller::btnNavigateToMockFragmentClickedHandler}"
+            android:src="@android:drawable/stat_notify_sync_noanim" />
+    </FrameLayout>
+</layout>
