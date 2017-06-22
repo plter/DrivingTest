@@ -13,7 +13,6 @@ import android.view.animation.Transformation;
 
 public class Translate3D extends Animation {
 
-
     private Camera camera;
     private int halfParentWidth;
     private int halfParentHeight;

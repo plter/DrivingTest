@@ -1,0 +1,22 @@
+<questions>
+    <question>
+        <title>世界上最大的海洋是?</title>
+        <a>北冰洋</a>
+        <b>印度洋</b>
+        <c>太平洋</c>
+        <d>大西洋</d>
+        <type>single</type>
+        <answer>c</answer>
+        <description>最大的海洋应该是太平洋</description>
+    </question>
+    <question>
+        <title>中国首都是?</title>
+        <a>上海</a>
+        <b>北京</b>
+        <c>重庆</c>
+        <d>天津</d>
+        <type>single</type>
+        <answer>b</answer>
+        <description>中国的首都是北京</description>
+    </question>
+</questions>
