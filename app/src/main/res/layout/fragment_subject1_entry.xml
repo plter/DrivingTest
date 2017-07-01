@@ -1,0 +1,21 @@
+<layout>
+
+    <data>
+
+        <variable
+            name="controller"
+            type="top.yunp.drivingtest.controllers.subject1.Subject1EntryFragmentController" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="top.yunp.drivingtest.controllers.subject1.Subject1EntryFragment">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+</layout>

@@ -4,14 +4,15 @@
 
         <variable
             name="controller"
-            type="top.yunp.drivingtest.controllers.subject1.MockExamFragmentController" />
+            type="top.yunp.drivingtest.controllers.MockExamFragmentController" />
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="top.yunp.drivingtest.controllers.subject1.MockExamFragment">
+        android:background="@android:color/white"
+        tools:context="top.yunp.drivingtest.controllers.MockExamFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,14 +27,5 @@
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="@android:color/white" />
         </LinearLayout>
-
-        <android.support.design.widget.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|bottom"
-            android:layout_marginBottom="16dp"
-            android:layout_marginRight="16dp"
-            android:onClick="@{controller::btnNavigateToRandomExamFragmentClickedHandler}"
-            android:src="@android:drawable/stat_notify_sync_noanim" />
     </FrameLayout>
 </layout>

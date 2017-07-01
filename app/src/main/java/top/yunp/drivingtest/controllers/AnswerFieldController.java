@@ -86,6 +86,6 @@ public class AnswerFieldController {
             //TODO
         }
 
-        return answer.equals(question.getAnswer());
+        return answer.equals(question.getAnswer().toLowerCase());
     }
 }

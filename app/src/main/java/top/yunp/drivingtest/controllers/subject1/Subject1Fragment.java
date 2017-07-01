@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import top.yunp.drivingtest.R;
 import top.yunp.drivingtest.databinding.FragmentSubject1Binding;
 import top.yunp.drivingtest.controllers.SubjectFragment;
 
@@ -17,7 +18,6 @@ public class Subject1Fragment extends SubjectFragment {
 
 
     private FragmentSubject1Binding binding;
-    private Subject1FragmentController controller;
 
     public Subject1Fragment() {
         // Required empty public constructor
@@ -28,14 +28,12 @@ public class Subject1Fragment extends SubjectFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentSubject1Binding.inflate(inflater);
-        controller = new Subject1FragmentController(this, binding);
-        binding.setController(controller);
         return binding.getRoot();
     }
 
     @Override
     public void onResume() {
-        controller.onResume();
+        getChildFragmentManager().beginTransaction().replace(R.id.subject1FragmentContainer, new Subject1EntryFragment()).commit();
         super.onResume();
     }
 }
