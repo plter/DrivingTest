@@ -23,7 +23,7 @@ import java.util.List;
 public class QuestionsReader {
 
     private Document document;
-    private List<Question> questions = new ArrayList<>();
+    private List<Question> questions = null;
     private Context context;
 
     public QuestionsReader(Context context, int resid) throws SAXException {
@@ -42,6 +42,73 @@ public class QuestionsReader {
         parseInputStream(in);
     }
 
+    /**
+     * 将JSON字符串解析为问题列表
+     *
+     * @param context
+     * @param jsonString
+     * @return
+     */
+    public static List<Question> parseJsonString(Context context, String jsonString) {
+        List<Question> questions = null;
+
+        try {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            questions = new ArrayList<>();
+            JSONArray jsonQuestions = jsonObject.getJSONArray("questions");
+            for (int i = 0; i < jsonQuestions.length(); i++) {
+                JSONObject jsonQuestion = jsonQuestions.getJSONObject(i);
+                questions.add(new Question(
+                                context,
+                                jsonQuestion.optString("title", null),
+                                jsonQuestion.optString("a", null),
+                                jsonQuestion.optString("b", null),
+                                jsonQuestion.optString("c", null),
+                                jsonQuestion.optString("d", null),
+                                jsonQuestion.optString("answer", null),
+                                jsonQuestion.optString("type", null),
+                                jsonQuestion.optString("description", null),
+                                jsonQuestion.optString("image", null),
+                                jsonQuestion.optString("video", null)
+                        )
+                );
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+
+            new AlertDialog.Builder(context)
+                    .setTitle("警告")
+                    .setMessage("数据格式错误，请联系开发者")
+                    .show();
+        }
+
+        return questions;
+    }
+
+    public static String encodeQuestionsToJsonObject(List<Question> questions) {
+        String result = null;
+        JSONObject obj = new JSONObject();
+        JSONArray arr = new JSONArray();
+        try {
+            obj.put("questions", arr);
+
+            for (int i = 0; i < questions.size(); i++) {
+                arr.put(questions.get(i).toJSONObject());
+            }
+
+            result = obj.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static List<Question> cloneQuestions(List<Question> input) {
+        List<Question> output = new ArrayList<>();
+        output.addAll(input);
+        return output;
+    }
+
     private void parseInputStream(InputStream in) throws SAXException {
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
@@ -51,34 +118,7 @@ public class QuestionsReader {
                 sb.append(line);
             }
 
-            try {
-                JSONObject jsonObject = new JSONObject(sb.toString());
-                JSONArray jsonQuestions = jsonObject.getJSONArray("questions");
-                for (int i = 0; i < jsonQuestions.length(); i++) {
-                    JSONObject jsonQuestion = jsonQuestions.getJSONObject(i);
-                    questions.add(new Question(
-                                    getContext(),
-                                    jsonQuestion.optString("title", null),
-                                    jsonQuestion.optString("a", null),
-                                    jsonQuestion.optString("b", null),
-                                    jsonQuestion.optString("c", null),
-                                    jsonQuestion.optString("d", null),
-                                    jsonQuestion.optString("answer", null),
-                                    jsonQuestion.optString("type", null),
-                                    jsonQuestion.optString("description", null),
-                                    jsonQuestion.optString("image", null),
-                                    jsonQuestion.optString("video", null)
-                            )
-                    );
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-
-                new AlertDialog.Builder(getContext())
-                        .setTitle("警告")
-                        .setMessage("数据格式错误，请联系开发者")
-                        .show();
-            }
+            questions = parseJsonString(getContext(), sb.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

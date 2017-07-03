@@ -7,7 +7,6 @@ import org.xml.sax.SAXException;
 import java.util.List;
 
 import top.yunp.drivingtest.controllers.TrainingFragment;
-import top.yunp.drivingtest.controllers.TrainingFragmentController;
 import top.yunp.drivingtest.reader.Question;
 import top.yunp.drivingtest.reader.QuestionsReadUtil;
 
@@ -17,12 +16,12 @@ import top.yunp.drivingtest.reader.QuestionsReadUtil;
 
 public class Subject1FlowTrainingFragment extends TrainingFragment {
     @Override
-    protected TrainingFragmentController.TrainingType getTrainingType() {
-        return TrainingFragmentController.TrainingType.FLOW;
+    protected TrainingFragment.TrainingType getTrainingType() {
+        return TrainingFragment.TrainingType.FLOW;
     }
 
     @Override
-    public List<Question> getQuestions() {
+    public List<Question> getSourceQuestions() {
         try {
             return QuestionsReadUtil.readSubject1(Subject1FlowTrainingFragment.this.getContext());
         } catch (SAXException e) {

@@ -2,6 +2,7 @@ package top.yunp.drivingtest;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
 import top.yunp.drivingtest.databinding.ActivityMainBinding;
@@ -43,6 +44,10 @@ public class MainActivityController {
     public MainActivityController(MainActivity activity, ActivityMainBinding binding) {
         this.activity = activity;
         this.binding = binding;
+
+        ActionBar actionBar = activity.getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.drawable.ic_directions_car_black_24dp);
 
         addExamFragment();
         addListeners();

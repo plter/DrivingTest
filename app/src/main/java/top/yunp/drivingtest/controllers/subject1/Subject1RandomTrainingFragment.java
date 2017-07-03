@@ -7,7 +7,6 @@ import org.xml.sax.SAXException;
 import java.util.List;
 
 import top.yunp.drivingtest.controllers.TrainingFragment;
-import top.yunp.drivingtest.controllers.TrainingFragmentController;
 import top.yunp.drivingtest.reader.Question;
 import top.yunp.drivingtest.reader.QuestionsReadUtil;
 
@@ -19,7 +18,7 @@ public class Subject1RandomTrainingFragment extends TrainingFragment {
 
 
     @Override
-    public List<Question> getQuestions() {
+    public List<Question> getSourceQuestions() {
         try {
             return QuestionsReadUtil.readSubject1(Subject1RandomTrainingFragment.this.getContext());
         } catch (SAXException e) {
@@ -34,7 +33,7 @@ public class Subject1RandomTrainingFragment extends TrainingFragment {
     }
 
     @Override
-    public TrainingFragmentController.TrainingType getTrainingType() {
-        return TrainingFragmentController.TrainingType.RANDOM;
+    public TrainingType getTrainingType() {
+        return TrainingType.RANDOM;
     }
 }

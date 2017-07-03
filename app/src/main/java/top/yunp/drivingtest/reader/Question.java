@@ -5,6 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AlertDialog;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -99,5 +102,26 @@ public class Question {
             imageBitmap.recycle();
             imageBitmap = null;
         }
+    }
+
+    public JSONObject toJSONObject() {
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("title", title);
+            obj.put("a", a);
+            obj.put("b", b);
+            obj.put("c", c);
+            obj.put("d", d);
+            obj.put("description", description);
+            obj.put("answer", answer);
+            obj.put("type", type);
+            obj.put("image", image);
+            obj.put("video", video);
+        } catch (JSONException e) {
+            e.printStackTrace();
+
+            obj = null;
+        }
+        return obj;
     }
 }
