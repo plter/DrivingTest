@@ -64,6 +64,7 @@
                         android:textColor="@android:color/black" />
 
                     <TextView
+                        android:id="@+id/descriptionTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@{controller.description}" />
@@ -72,6 +73,11 @@
                         android:id="@+id/imageView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
+                    <VideoView
+                        android:id="@+id/videoView"
+                        android:layout_width="match_parent"
+                        android:layout_height="500dp" />
 
                     <FrameLayout
                         android:id="@+id/answerContainer"

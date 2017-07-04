@@ -11,7 +11,7 @@ import top.yunp.drivingtest.R;
 import top.yunp.drivingtest.controllers.subject1.Subject1Fragment;
 import top.yunp.drivingtest.controllers.Subject2Fragment;
 import top.yunp.drivingtest.controllers.Subject3Fragment;
-import top.yunp.drivingtest.controllers.Subject4Fragment;
+import top.yunp.drivingtest.controllers.subject4.Subject4Fragment;
 import top.yunp.drivingtest.controllers.SubjectFragment;
 
 /**

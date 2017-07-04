@@ -7,7 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,10 +25,10 @@ public class QuestionsReader {
     private List<Question> questions = null;
     private Context context;
 
-    public QuestionsReader(Context context, int resid) throws SAXException {
+    public QuestionsReader(Context context, int resid, String baseDir) {
         this.context = context;
         InputStream in = context.getResources().openRawResource(resid);
-        parseInputStream(in);
+        parseInputStream(in, baseDir);
         try {
             in.close();
         } catch (IOException e) {
@@ -37,9 +36,9 @@ public class QuestionsReader {
         }
     }
 
-    public QuestionsReader(Context context, InputStream in) throws SAXException {
+    public QuestionsReader(Context context, InputStream in, String baseDir) {
         this.context = context;
-        parseInputStream(in);
+        parseInputStream(in, baseDir);
     }
 
     /**
@@ -47,9 +46,10 @@ public class QuestionsReader {
      *
      * @param context
      * @param jsonString
+     * @param baseDir    问题所在的目录
      * @return
      */
-    public static List<Question> parseJsonString(Context context, String jsonString) {
+    public static List<Question> parseJsonString(Context context, String jsonString, String baseDir) {
         List<Question> questions = null;
 
         try {
@@ -60,6 +60,7 @@ public class QuestionsReader {
                 JSONObject jsonQuestion = jsonQuestions.getJSONObject(i);
                 questions.add(new Question(
                                 context,
+                                baseDir,
                                 jsonQuestion.optString("title", null),
                                 jsonQuestion.optString("a", null),
                                 jsonQuestion.optString("b", null),
@@ -109,7 +110,7 @@ public class QuestionsReader {
         return output;
     }
 
-    private void parseInputStream(InputStream in) throws SAXException {
+    private void parseInputStream(InputStream in, String baseDir) {
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
             String line;
@@ -118,7 +119,7 @@ public class QuestionsReader {
                 sb.append(line);
             }
 
-            questions = parseJsonString(getContext(), sb.toString());
+            questions = parseJsonString(getContext(), sb.toString(), baseDir);
         } catch (IOException e) {
             e.printStackTrace();
         }

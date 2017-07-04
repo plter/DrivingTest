@@ -7,6 +7,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import top.yunp.drivingtest.databinding.JudgeLayoutBinding;
+import top.yunp.drivingtest.databinding.MultiChoiceLayoutBinding;
 import top.yunp.drivingtest.databinding.SingleChoiceLayoutBinding;
 import top.yunp.drivingtest.reader.Question;
 import top.yunp.drivingtest.reader.QuestionType;
@@ -23,6 +24,7 @@ public class AnswerFieldController {
     private View view;
     private SingleChoiceLayoutBinding singleChoiceLayoutBinding;
     private JudgeLayoutBinding judgeLayoutBinding;
+    private MultiChoiceLayoutBinding multiChoiceLayoutBinding;
 
     public AnswerFieldController(Context context, Question question) {
         this.context = context;
@@ -41,7 +43,12 @@ public class AnswerFieldController {
             judgeLayoutBinding.rbB.setText(question.getB());
             view = judgeLayoutBinding.getRoot();
         } else if (question.getType().equals(QuestionType.MULTI_CHOICE)) {
-            //TODO
+            multiChoiceLayoutBinding = MultiChoiceLayoutBinding.inflate(LayoutInflater.from(context));
+            multiChoiceLayoutBinding.cbA.setText(question.getA());
+            multiChoiceLayoutBinding.cbB.setText(question.getB());
+            multiChoiceLayoutBinding.cbC.setText(question.getC());
+            multiChoiceLayoutBinding.cbD.setText(question.getD());
+            view = multiChoiceLayoutBinding.getRoot();
         } else {
             Toast.makeText(context, "Unsupported question type!", Toast.LENGTH_SHORT).show();
         }
@@ -83,7 +90,18 @@ public class AnswerFieldController {
                 answer = "b";
             }
         } else if (question.getType().equals(QuestionType.MULTI_CHOICE)) {
-            //TODO
+            if (multiChoiceLayoutBinding.cbA.isChecked()) {
+                answer += "a";
+            }
+            if (multiChoiceLayoutBinding.cbB.isChecked()) {
+                answer += "b";
+            }
+            if (multiChoiceLayoutBinding.cbC.isChecked()) {
+                answer += "c";
+            }
+            if (multiChoiceLayoutBinding.cbD.isChecked()) {
+                answer += "d";
+            }
         }
 
         return answer.equals(question.getAnswer().toLowerCase());

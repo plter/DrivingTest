@@ -1,26 +1,16 @@
-package top.yunp.drivingtest.controllers.subject1;
+package top.yunp.drivingtest.controllers.subject4;
 
-
-import android.support.v4.app.Fragment;
 import android.widget.ArrayAdapter;
 
 import top.yunp.drivingtest.R;
 import top.yunp.drivingtest.controllers.EntryFragment;
-import top.yunp.drivingtest.databinding.FragmentSubject1EntryBinding;
 import top.yunp.drivingtest.helpers.Operation;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by plter on 7/3/17.
  */
-public class Subject1EntryFragment extends EntryFragment {
 
-
-    private FragmentSubject1EntryBinding binding;
-
-    public Subject1EntryFragment() {
-        // Required empty public constructor
-    }
-
+public class Subject4EntryFragment extends EntryFragment {
     @Override
     protected ArrayAdapter<Operation> getMenuItemsAdapter() {
         return new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, new Operation[]{
@@ -30,15 +20,14 @@ public class Subject1EntryFragment extends EntryFragment {
         });
     }
 
-
     @Override
     protected void onSelectOperation(Operation item) {
         switch (item.getOperation()) {
             case Operation.SHOW_RANDOM_TRAINING_FRAGMENT:
-                showFragment(R.id.subject1FragmentContainer, new Subject1RandomTrainingFragment());
+                showFragment(R.id.subject4FragmentContainer,new Subject4RandomTrainingFragment());
                 break;
             case Operation.SHOW_FLOW_TRAINING_FRAGMENT:
-                showFragment(R.id.subject1FragmentContainer, new Subject1FlowTrainingFragment());
+                showFragment(R.id.subject4FragmentContainer, new Subject4FlowTrainingFragment());
                 break;
             case Operation.SHOW_MOCK_EXAM_FRAGMENT:
                 //TODO

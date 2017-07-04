@@ -1,4 +1,4 @@
-package top.yunp.drivingtest.controllers;
+package top.yunp.drivingtest.controllers.subject4;
 
 
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import top.yunp.drivingtest.R;
+import top.yunp.drivingtest.controllers.SubjectFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,4 +27,12 @@ public class Subject4Fragment extends SubjectFragment {
         return inflater.inflate(R.layout.fragment_subject4, container, false);
     }
 
+    @Override
+    public void onResume() {
+        getChildFragmentManager()
+                .beginTransaction()
+                .replace(R.id.subject4FragmentContainer, new Subject4EntryFragment())
+                .commit();
+        super.onResume();
+    }
 }

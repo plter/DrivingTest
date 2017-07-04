@@ -4,7 +4,10 @@ package top.yunp.drivingtest.controllers;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.databinding.ObservableField;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
@@ -12,8 +15,17 @@ import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.widget.VideoView;
 
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import top.yunp.drivingtest.databinding.FragmentTrainingBinding;
@@ -42,11 +54,11 @@ public abstract class TrainingFragment extends Fragment {
     private TrainingType trainingType;
     private int questionIndex = 0;
 
-    private List<Question> tryToReadCachedRemainQuestions() {
+    private List<Question> tryToReadCachedRemainQuestions(String baseDir) {
         List<Question> cachedQuestions = null;
         String questionsJsonString = getSharedPreferences().getString(KEY_REMAIN_QUESTIONS, null);
         if (questionsJsonString != null) {
-            cachedQuestions = QuestionsReader.parseJsonString(getContext(), questionsJsonString);
+            cachedQuestions = QuestionsReader.parseJsonString(getContext(), questionsJsonString, baseDir);
         }
         return cachedQuestions;
     }
@@ -78,7 +90,7 @@ public abstract class TrainingFragment extends Fragment {
             questions = getSourceQuestions();
             questionIndex = 0;
         } else {
-            questions = tryToReadCachedRemainQuestions();
+            questions = tryToReadCachedRemainQuestions(getQuestionsBaseDir());
 
             if (questions == null) {
                 questions = QuestionsReader.cloneQuestions(getSourceQuestions());
@@ -92,6 +104,8 @@ public abstract class TrainingFragment extends Fragment {
         binding.setController(this);
         return binding.getRoot();
     }
+
+    protected abstract String getQuestionsBaseDir();
 
     @Override
     public void onDestroyView() {
@@ -164,14 +178,20 @@ public abstract class TrainingFragment extends Fragment {
             description.set(null);
 
         } else {
+            binding.descriptionTextView.setVisibility(View.VISIBLE);
             description.set(Html.fromHtml("<font color='red'>正确答案是：" + currentQuestion.getAnswer().toUpperCase() + "</font>，解释如下：<br><br><font color='blue'>" + currentQuestion.getDescription() + "</font>"));
         }
     }
 
+
+    /**
+     * 根据题号呈现问题
+     */
     private void showQuestion() {
         if (currentQuestion != null) {
             currentQuestion.recycleBitmap();
         }
+        binding.descriptionTextView.setVisibility(View.GONE);
         description.set(null);
 
         if (questions.size() > 0) {
@@ -181,7 +201,9 @@ public abstract class TrainingFragment extends Fragment {
             binding.answerContainer.removeAllViews();
             currentAnswerFieldController = new AnswerFieldController(getContext(), currentQuestion);
             binding.answerContainer.addView(currentAnswerFieldController.getView());
-            binding.imageView.setImageBitmap(currentQuestion.getImageBitmap());
+
+            checkToLoadImage(currentQuestion);
+            checkToLoadVideo(currentQuestion);
         } else {
             new AlertDialog.Builder(getContext())
                     .setTitle("你好")
@@ -189,6 +211,67 @@ public abstract class TrainingFragment extends Fragment {
                     .setPositiveButton("确定", null)
                     .show();
 
+        }
+    }
+
+    private void checkToLoadImage(Question question) {
+        if (question.getImage() != null) {
+            binding.imageView.setVisibility(View.VISIBLE);
+            binding.imageView.setImageBitmap(question.getImageBitmap());
+        } else {
+            binding.imageView.setVisibility(View.GONE);
+            binding.imageView.setImageBitmap(null);
+        }
+    }
+
+    private void checkToLoadVideo(Question question) {
+        if (question.getVideo() != null) {
+            binding.videoView.setVisibility(View.VISIBLE);
+
+            File videoFile = new File(getContext().getFilesDir(), "video.mp4");
+            if (!videoFile.exists()) {
+                try {
+                    videoFile.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (videoFile.exists()) {
+                try {
+
+                    InputStream inputStream = getContext().getAssets().open(question.getBaseDir() + question.getVideo());
+
+                    byte[] buf = new byte[2048];
+                    FileOutputStream fos = new FileOutputStream(videoFile);
+                    int count = -1;
+                    while ((count = inputStream.read(buf)) != -1) {
+                        fos.write(buf, 0, count);
+                    }
+                    fos.close();
+                    inputStream.close();
+
+                    binding.videoView.setVideoURI(Uri.fromFile(videoFile));
+                    binding.videoView.start();
+                    binding.videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                        @Override
+                        public void onPrepared(MediaPlayer mp) {
+                            mp.setLooping(true);
+                        }
+                    });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                new AlertDialog.Builder(getContext())
+                        .setTitle("警告")
+                        .setMessage("关键位置不可写，无法播放视频")
+                        .setPositiveButton("确定", null)
+                        .show();
+            }
+
+        } else {
+            binding.videoView.setVideoURI(null);
+            binding.videoView.setVisibility(View.GONE);
         }
     }
 

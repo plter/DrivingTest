@@ -17,11 +17,28 @@ import java.io.InputStream;
 
 public class Question {
 
+    private String baseDir;
     private String title, a, b, c, d, answer, type, description, image, video;
     private Bitmap imageBitmap = null;
     private Context context;
 
-    public Question(Context context, String title, String a, String b, String c, String d, String answer, String type, String description, String image, String video) {
+    /**
+     * 构造一个问题
+     *
+     * @param context
+     * @param baseDir     问题所在的根路径
+     * @param title       问题标题
+     * @param a           答案A选项
+     * @param b           答案B选项
+     * @param c           答案C选项
+     * @param d           答案D选项
+     * @param answer      正确答案
+     * @param type        问题的类型，可能为single(单选),judge(判断),multi(多选)
+     * @param description 问题的讲述
+     * @param image       图片路径
+     * @param video       视频路径
+     */
+    public Question(Context context, String baseDir, String title, String a, String b, String c, String d, String answer, String type, String description, String image, String video) {
         this.title = title;
         this.a = a;
         this.b = b;
@@ -33,6 +50,7 @@ public class Question {
         this.image = image;
         this.video = video;
         this.context = context;
+        this.baseDir = baseDir;
     }
 
     public String getTitle() {
@@ -79,10 +97,14 @@ public class Question {
         return context;
     }
 
+    public String getBaseDir() {
+        return baseDir;
+    }
+
     public Bitmap getImageBitmap() {
         if (getImage() != null && imageBitmap == null) {
             try {
-                InputStream in = getContext().getAssets().open(QuestionsReadUtil.SUBJECT1_PATH + getImage());
+                InputStream in = getContext().getAssets().open(baseDir + getImage());
                 imageBitmap = BitmapFactory.decodeStream(in);
                 in.close();
             } catch (IOException e) {
