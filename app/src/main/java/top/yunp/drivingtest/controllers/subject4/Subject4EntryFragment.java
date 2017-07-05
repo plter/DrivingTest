@@ -11,6 +11,8 @@ import top.yunp.drivingtest.helpers.Operation;
  */
 
 public class Subject4EntryFragment extends EntryFragment {
+
+
     @Override
     protected ArrayAdapter<Operation> getMenuItemsAdapter() {
         return new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, new Operation[]{
@@ -24,13 +26,13 @@ public class Subject4EntryFragment extends EntryFragment {
     protected void onSelectOperation(Operation item) {
         switch (item.getOperation()) {
             case Operation.SHOW_RANDOM_TRAINING_FRAGMENT:
-                showFragment(R.id.subject4FragmentContainer,new Subject4RandomTrainingFragment());
+                showFragment(R.id.subject4FragmentContainer, new Subject4RandomTrainingFragment());
                 break;
             case Operation.SHOW_FLOW_TRAINING_FRAGMENT:
                 showFragment(R.id.subject4FragmentContainer, new Subject4FlowTrainingFragment());
                 break;
             case Operation.SHOW_MOCK_EXAM_FRAGMENT:
-                //TODO
+                showFragment(R.id.subject4FragmentContainer, new Subject4MockExamFragment());
                 break;
         }
     }

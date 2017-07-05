@@ -31,7 +31,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/random_exam"
+                    android:text="@{controller.pageTitle}"
                     android:textAppearance="?android:textAppearanceLarge" />
 
                 <ImageButton
@@ -62,12 +62,6 @@
                         android:text="@{controller.title}"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textColor="@android:color/black" />
-
-                    <TextView
-                        android:id="@+id/descriptionTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@{controller.description}" />
 
                     <ImageView
                         android:id="@+id/imageView"

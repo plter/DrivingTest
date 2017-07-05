@@ -3,6 +3,7 @@ package top.yunp.drivingtest.controllers.subject4;
 import java.util.List;
 
 import top.yunp.drivingtest.controllers.TrainingFragment;
+import top.yunp.drivingtest.controllers.TrainingType;
 import top.yunp.drivingtest.reader.Question;
 import top.yunp.drivingtest.reader.QuestionsReadUtil;
 
@@ -11,6 +12,12 @@ import top.yunp.drivingtest.reader.QuestionsReadUtil;
  */
 
 public class Subject4FlowTrainingFragment extends TrainingFragment {
+
+
+    public Subject4FlowTrainingFragment() {
+        getPageTitle().set("科目四顺序练题");
+    }
+
     @Override
     protected String getQuestionsBaseDir() {
         return QuestionsReadUtil.SUBJECT4_PATH;

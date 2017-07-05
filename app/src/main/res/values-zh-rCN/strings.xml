@@ -12,4 +12,5 @@
     <string name="random_exam">随机练题</string>
     <string name="mock_exam">模拟考试</string>
     <string name="pre">上一题</string>
+    <string name="no_items">没有条目</string>
 </resources>

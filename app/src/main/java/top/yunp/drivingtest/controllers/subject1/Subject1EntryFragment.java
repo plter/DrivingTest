@@ -41,7 +41,7 @@ public class Subject1EntryFragment extends EntryFragment {
                 showFragment(R.id.subject1FragmentContainer, new Subject1FlowTrainingFragment());
                 break;
             case Operation.SHOW_MOCK_EXAM_FRAGMENT:
-                //TODO
+                showFragment(R.id.subject1FragmentContainer, new Subject1MockExamFragment());
                 break;
         }
     }

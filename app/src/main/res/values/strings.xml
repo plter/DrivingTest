@@ -15,4 +15,5 @@
     <string name="random_exam">Random exam</string>
     <string name="mock_exam">Mock exam</string>
     <string name="pre">Pre</string>
+    <string name="no_items">No items</string>
 </resources>
