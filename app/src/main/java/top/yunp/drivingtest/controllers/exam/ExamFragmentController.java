@@ -1,4 +1,4 @@
-package top.yunp.drivingtest.controllers;
+package top.yunp.drivingtest.controllers.exam;
 
 import top.yunp.drivingtest.adapters.ExamViewPagerAdapter;
 import top.yunp.drivingtest.databinding.FragmentExamBinding;

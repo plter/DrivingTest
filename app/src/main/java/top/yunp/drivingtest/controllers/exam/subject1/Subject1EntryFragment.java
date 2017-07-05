@@ -1,12 +1,11 @@
-package top.yunp.drivingtest.controllers.subject1;
+package top.yunp.drivingtest.controllers.exam.subject1;
 
 
 import android.support.v4.app.Fragment;
 import android.widget.ArrayAdapter;
 
 import top.yunp.drivingtest.R;
-import top.yunp.drivingtest.controllers.EntryFragment;
-import top.yunp.drivingtest.databinding.FragmentSubject1EntryBinding;
+import top.yunp.drivingtest.controllers.exam.EntryFragment;
 import top.yunp.drivingtest.helpers.Operation;
 
 /**
@@ -15,7 +14,6 @@ import top.yunp.drivingtest.helpers.Operation;
 public class Subject1EntryFragment extends EntryFragment {
 
 
-    private FragmentSubject1EntryBinding binding;
 
     public Subject1EntryFragment() {
         // Required empty public constructor

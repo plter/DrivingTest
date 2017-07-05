@@ -1,4 +1,4 @@
-package top.yunp.drivingtest.controllers;
+package top.yunp.drivingtest.controllers.exam;
 
 /**
  * 练题模式

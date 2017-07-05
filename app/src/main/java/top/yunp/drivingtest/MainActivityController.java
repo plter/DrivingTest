@@ -5,9 +5,9 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
+import top.yunp.drivingtest.controllers.AboutFragment;
+import top.yunp.drivingtest.controllers.exam.ExamFragment;
 import top.yunp.drivingtest.databinding.ActivityMainBinding;
-import top.yunp.drivingtest.controllers.ExamFragment;
-import top.yunp.drivingtest.controllers.SettingsFragment;
 
 /**
  * Created by plter on 6/22/17.
@@ -34,7 +34,7 @@ public class MainActivityController {
                     addExamFragment();
                     return true;
                 case R.id.navigation_settings:
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.content, new SettingsFragment()).commit();
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.content, new AboutFragment()).commit();
                     return true;
             }
             return false;

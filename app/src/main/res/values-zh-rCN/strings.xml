@@ -13,4 +13,5 @@
     <string name="mock_exam">模拟考试</string>
     <string name="pre">上一题</string>
     <string name="no_items">没有条目</string>
+    <string name="about">关于</string>
 </resources>

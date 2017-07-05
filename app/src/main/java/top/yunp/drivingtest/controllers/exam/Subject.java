@@ -1,4 +1,4 @@
-package top.yunp.drivingtest.controllers;
+package top.yunp.drivingtest.controllers.exam;
 
 /**
  * Created by plter on 7/5/17.

@@ -1,4 +1,4 @@
-package top.yunp.drivingtest.controllers.subject1;
+package top.yunp.drivingtest.controllers.exam.subject1;
 
 
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import top.yunp.drivingtest.R;
 import top.yunp.drivingtest.databinding.FragmentSubject1Binding;
-import top.yunp.drivingtest.controllers.SubjectFragment;
+import top.yunp.drivingtest.controllers.exam.SubjectFragment;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -4,7 +4,7 @@
 
         <variable
             name="controller"
-            type="top.yunp.drivingtest.controllers.ExamFragmentController" />
+            type="top.yunp.drivingtest.controllers.exam.ExamFragmentController" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="top.yunp.drivingtest.controllers.ExamFragment">
+        tools:context="top.yunp.drivingtest.controllers.exam.ExamFragment">
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tab"

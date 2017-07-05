@@ -1,6 +1,6 @@
-package top.yunp.drivingtest.controllers.subject4;
+package top.yunp.drivingtest.controllers.exam.subject4;
 
-import top.yunp.drivingtest.controllers.TrainingType;
+import top.yunp.drivingtest.controllers.exam.TrainingType;
 
 /**
  * Created by plter on 7/4/17.

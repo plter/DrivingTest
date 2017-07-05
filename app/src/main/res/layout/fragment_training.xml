@@ -4,7 +4,7 @@
 
         <variable
             name="controller"
-            type="top.yunp.drivingtest.controllers.TrainingFragment" />
+            type="top.yunp.drivingtest.controllers.exam.TrainingFragment" />
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        tools:context="top.yunp.drivingtest.controllers.subject1.TrainingFragment">
+        tools:context=".controllers.exam.subject1.TrainingFragment">
 
 
         <LinearLayout

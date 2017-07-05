@@ -1,11 +1,9 @@
-package top.yunp.drivingtest.controllers;
+package top.yunp.drivingtest.controllers.exam;
 
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.databinding.ObservableField;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -15,10 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import top.yunp.drivingtest.databinding.FragmentTrainingBinding;

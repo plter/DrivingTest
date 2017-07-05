@@ -4,14 +4,14 @@
 
         <variable
             name="controller"
-            type="top.yunp.drivingtest.controllers.EntryFragment" />
+            type="top.yunp.drivingtest.controllers.exam.EntryFragment" />
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="top.yunp.drivingtest.controllers.subject1.Subject1EntryFragment">
+        tools:context=".controllers.exam.subject1.Subject1EntryFragment">
 
         <ListView
             android:id="@+id/listView"

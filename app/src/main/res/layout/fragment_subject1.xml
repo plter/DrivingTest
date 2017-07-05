@@ -5,7 +5,7 @@
         android:id="@+id/subject1FragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="top.yunp.drivingtest.controllers.subject1.Subject1Fragment">
+        tools:context=".controllers.exam.subject1.Subject1Fragment">
 
     </FrameLayout>
 </layout>

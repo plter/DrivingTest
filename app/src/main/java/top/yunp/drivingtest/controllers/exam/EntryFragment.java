@@ -1,4 +1,4 @@
-package top.yunp.drivingtest.controllers;
+package top.yunp.drivingtest.controllers.exam;
 
 
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import top.yunp.drivingtest.R;
-import top.yunp.drivingtest.databinding.FragmentSubject1EntryBinding;
+import top.yunp.drivingtest.databinding.FragmentSubjectEntryBinding;
 import top.yunp.drivingtest.helpers.Operation;
 
 /**
@@ -19,7 +19,7 @@ import top.yunp.drivingtest.helpers.Operation;
 public abstract class EntryFragment extends Fragment implements AdapterView.OnItemClickListener {
 
 
-    private FragmentSubject1EntryBinding binding;
+    private FragmentSubjectEntryBinding binding;
 
     public EntryFragment() {
         // Required empty public constructor
@@ -29,7 +29,7 @@ public abstract class EntryFragment extends Fragment implements AdapterView.OnIt
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentSubject1EntryBinding.inflate(inflater);
+        binding = FragmentSubjectEntryBinding.inflate(inflater);
         binding.setController(this);
 
         binding.listView.setAdapter(getMenuItemsAdapter());

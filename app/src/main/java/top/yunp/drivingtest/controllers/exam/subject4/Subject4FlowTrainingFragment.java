@@ -1,9 +1,9 @@
-package top.yunp.drivingtest.controllers.subject4;
+package top.yunp.drivingtest.controllers.exam.subject4;
 
 import java.util.List;
 
-import top.yunp.drivingtest.controllers.TrainingFragment;
-import top.yunp.drivingtest.controllers.TrainingType;
+import top.yunp.drivingtest.controllers.exam.TrainingFragment;
+import top.yunp.drivingtest.controllers.exam.TrainingType;
 import top.yunp.drivingtest.reader.Question;
 import top.yunp.drivingtest.reader.QuestionsReadUtil;
 
