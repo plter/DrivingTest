@@ -2,12 +2,13 @@ package top.yunp.drivingtest.controllers.exam;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+
+import androidx.fragment.app.Fragment;
 
 import top.yunp.drivingtest.R;
 import top.yunp.drivingtest.databinding.FragmentSubjectEntryBinding;

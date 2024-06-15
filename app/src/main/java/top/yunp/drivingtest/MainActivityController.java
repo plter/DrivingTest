@@ -1,9 +1,11 @@
 package top.yunp.drivingtest;
 
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import top.yunp.drivingtest.controllers.AboutFragment;
 import top.yunp.drivingtest.controllers.exam.ExamFragment;
@@ -29,13 +31,12 @@ public class MainActivityController {
 
             currentItemId = itemId;
 
-            switch (itemId) {
-                case R.id.navigation_exam:
-                    addExamFragment();
-                    return true;
-                case R.id.navigation_settings:
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.content, new AboutFragment()).commit();
-                    return true;
+            if (itemId == R.id.navigation_exam) {
+                addExamFragment();
+                return true;
+            } else if (itemId == R.id.navigation_settings) {
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.content, new AboutFragment()).commit();
+                return true;
             }
             return false;
         }

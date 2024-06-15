@@ -1,7 +1,6 @@
 package top.yunp.drivingtest.controllers.exam.subject1;
 
 
-import android.support.v4.app.Fragment;
 import android.widget.ArrayAdapter;
 
 import top.yunp.drivingtest.R;

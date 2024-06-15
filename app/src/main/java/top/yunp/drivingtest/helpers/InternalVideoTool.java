@@ -3,8 +3,9 @@ package top.yunp.drivingtest.helpers;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.support.v7.app.AlertDialog;
 import android.widget.VideoView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import java.io.File;
 import java.io.FileOutputStream;
